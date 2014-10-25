@@ -1,0 +1,36 @@
+
+SELECT DISTINCT ?name ?description ?start_date ?end_date ?price WHERE
+{
+	BIND (NOW() AS ?now).
+	BIND (xsd:dateTime('3001-01-01') AS ?end_date).
+	SERVICE <http://api.artsholland.com/sparql>
+	{
+		?event ah:venue/dc:title ?museum_name.
+		OPTIONAL { ?event dc:title ?name. FILTER (langMatches(lang(?name), 'nl')) }
+		OPTIONAL { ?event dc:title ?name. FILTER (langMatches(lang(?name), 'en')) }
+		OPTIONAL { ?event dc:description ?description. FILTER (langMatches(lang(?description), 'nl')) }
+		OPTIONAL { ?event dc:description ?description. FILTER (langMatches(lang(?description), 'en')) }
+		OPTIONAL
+		{
+			?event ah:production ?production.
+			OPTIONAL { ?production dc:title ?name. FILTER (langMatches(lang(?name), 'nl')) }
+			OPTIONAL { ?production dc:title ?name. FILTER (langMatches(lang(?name), 'en')) }
+			OPTIONAL { ?production dc:description ?description. FILTER (langMatches(lang(?description), 'nl')) }
+			OPTIONAL { ?production dc:description ?description. FILTER (langMatches(lang(?description), 'en')) }
+		}
+		OPTIONAL
+		{
+			?event ah:venue ?venue.
+			OPTIONAL { ?production dc:title ?name. FILTER (langMatches(lang(?name), 'nl')) }
+			OPTIONAL { ?production dc:title ?name. FILTER (langMatches(lang(?name), 'en')) }
+			OPTIONAL { ?production dc:description ?description. FILTER (langMatches(lang(?description), 'nl')) }
+			OPTIONAL { ?production dc:description ?description. FILTER (langMatches(lang(?description), 'en')) }
+		}
+		OPTIONAL { ?event gr:offers/gr:hasPriceSpecification/gr:hasMaxCurrencyValue ?price. }
+		OPTIONAL { ?event time:hasBeginning ?start_date. }
+		OPTIONAL { ?event time:hasEnd ?end_date. }
+		FILTER ((regex(STR(?museum_name), '%s', 'i')) && (?end_date > ?now))
+
+	}
+}
+LIMIT 25

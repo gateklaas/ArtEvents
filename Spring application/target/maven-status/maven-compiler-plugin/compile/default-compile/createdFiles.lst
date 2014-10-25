@@ -1,0 +1,8 @@
+model\Museum.class
+model\Artist.class
+controller\RESTController.class
+sparql\ConvertJSON.class
+sparql\Constants.class
+sparql\MuseumSparql.class
+sparql\SparqlEngine.class
+controller\Application.class

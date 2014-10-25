@@ -1,0 +1,15 @@
+SELECT DISTINCT ?museum ?name ?lat ?long WHERE 
+{ 
+	SERVICE <http://dbpedia.org/sparql> 
+	{ 
+		?museum rdf:type dbo:Museum; 
+		dbo:location dbr:Amsterdam;
+		
+		OPTIONAL { ?museum rdfs:label ?name;
+			geo:lat ?lat;
+			geo:long ?long .
+		}
+		Filter(lang(?name) = 'en').
+		Filter(regex(STR(?name), '%s', 'i')) //"Filter(STR(?name) = '%s') .
+	} 
+}
