@@ -1,0 +1,7 @@
+SELECT ?lat ?long ?name WHERE
+{ 
+	?museum rdf:type base:Museum.
+	?museum foaf:name ?name.
+	?museum geo:lat	?lat.
+	?museum geo:long ?long.
+}

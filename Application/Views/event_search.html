@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:base="http://www.semanticweb.org/Finalassessment#"
+	xmlns:sem="http://semanticweb.cs.vu.nl/2009/11/sem"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#" 
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	xmlns:time="http://www.w3.org/2006/time#"
+	xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:dbo="http://dbpedia.org/ontology/"
+	xmlns:dbp="http://dbpedia.org/property/"
+	xmlns:dbr="http://dbpedia.org/resource/"
+	xmlns:ah="http://purl.org/artsholland/1.0/"
+	xmlns:dc="http://purl.org/dc/terms/"
+	xmlns:gr="http://purl.org/goodrelations/v1#"
+	version="XHTML+RDFa 1.0">
+	<head>
+		<title>Event search</title>
+		<meta charset="UTF-8"/>
+		<link href="../Javascript/Assart_bestanden/assart.charts.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>	
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript" id="sgvzlr_script" src="../Javascript/Sgvizler_bestanden/sgvizler.js"></script>
+		<script type="text/javascript" id="assart_script" src="../Javascript/Assart_bestanden/assart.js"></script>
+		<script type="text/javascript">
+		sgvizler
+			.defaultEndpointURL("http://localhost:3030/art/sparql")
+			.prefix("npdv", "http://sws.ifi.uio.no/vocab/npd#")
+			.prefix("sem", "http://sws.ifi.uio.no/vocab/npd#")
+			.prefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+			.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#")
+			.prefix("xsd", "http://www.w3.org/2001/XMLSchema#")
+			.prefix("owl", "http://www.w3.org/2002/07/owl#")
+			.prefix("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#")
+			.prefix("time", "http://www.w3.org/2006/time#")
+			.prefix("vcard", "http://www.w3.org/2006/vcard/ns#")
+			.prefix("foaf", "http://xmlns.com/foaf/0.1/")
+			.prefix("dbo", "http://dbpedia.org/ontology/")
+			.prefix("dbp", "http://dbpedia.org/property/")
+			.prefix("dbr", "http://dbpedia.org/resource/")
+			.prefix("ah", "http://purl.org/artsholland/1.0/")
+			.prefix("dc", "http://purl.org/dc/terms/")
+			.prefix("gr", "http://purl.org/goodrelations/v1#")
+			.prefix("base", "http://www.semanticweb.org/Finalassessment#");
+		
+		//// Leave this as is. Ready, steady, go!
+		$(document).ready(sgvizler.containerDrawAll);
+		</script>
+	</head>
+	<body>
+		<h1>Event search</h1>
+		
+		<input id="search_bar" type="text" onblur="search_for_event(this)" />
+		
+		<div id="museum_collection"
+		data-sgvizler-chart="assart.Layout"
+		data-sgvizler-log="2"
+		style="width:800px; height:600px;"></div>
+		
+		<script type="text/javascript">
+		function search_for_event(searchBarId)
+		{
+			var searchQuery = searchBarId.value;
+			if (searchQuery == "")
+				return;
+			
+			searchBarId.style.background="#FF0";
+			var elementId = "museum_collection";
+			var element = document.getElementById(elementId);
+			element.setAttribute("data-sgvizler-query", 
+			"SELECT DISTINCT ?name ?description ?start_date ?end_date ?price ?located_at WHERE " +
+			"{ " +
+			"	BIND (NOW() AS ?now). " +
+		
+			"	?event rdf:type base:Event. " +
+			"	?event dbo:location/foaf:name ?located_at. " +
+			"	?event time:hasEnd ?end_date. " +
+	  
+			"	OPTIONAL { ?event foaf:name ?name. FILTER (langMatches(lang(?name), 'nl')) } " +
+			"	OPTIONAL { ?event foaf:name ?name. FILTER (langMatches(lang(?name), 'en')) } " +
+			"	OPTIONAL { ?event dbo:abstract ?description. FILTER (langMatches(lang(?description), 'nl')) } " +
+			"	OPTIONAL { ?event dbo:abstract ?description. FILTER (langMatches(lang(?description), 'en')) } " +
+			"	OPTIONAL { ?event dbo:cost ?price. } " +
+			"	OPTIONAL { ?event time:hasBeginning ?start_date. } " +
+	  
+			"	FILTER (regex(?name, '" + searchQuery + "') || regex(?museum_name, '" + searchQuery + "') || regex(?description, '" + searchQuery + "')) " +
+			"} " +
+			"ORDER BY ?end_date " +
+			"LIMIT 25");
+			
+			sgvizler.containerDraw(elementId);
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:myOnt="http://www.semanticweb.org/Art_Ontology#" xmlns:dbpedia-owl="http://dbpedia.org/ontology/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Nederlands_Scheepvaartmuseum">
+    <foaf:name xml:lang="en">Het Scheepvaartmuseum</foaf:name>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.91472</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.3717</geo:lat>
+    <foaf:name xml:lang="en">National Maritime Museum</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Amsterdam_Museum">
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.8907</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.3702</geo:lat>
+    <foaf:name xml:lang="en">Amsterdam Museum</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Rijksmuseum">
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.88528</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.36</geo:lat>
+    <foaf:name xml:lang="en">Rijksmuseum</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/NEMO_(museum)">
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.91235</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.3741</geo:lat>
+    <foaf:name xml:lang="en">Science Center Nemo</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Van_Gogh_Museum">
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.88108</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.3584</geo:lat>
+    <foaf:name xml:lang="en">Van Gogh Museum</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Stedelijk_Museum_Amsterdam">
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.87972</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.3581</geo:lat>
+    <foaf:name xml:lang="en">Stedelijk Museum Amsterdam</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Rembrandt_House_Museum">
+    <foaf:name xml:lang="en">Rembrandt House Museum</foaf:name>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.90162</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.3692</geo:lat>
+    <foaf:name xml:lang="en">Museum Het Rembrandthuis</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Anne_Frank_House">
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.884</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.3753</geo:lat>
+    <foaf:name xml:lang="en">Anne Frank House</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Tropenmuseum">
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.92252</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.3627</geo:lat>
+    <foaf:name xml:lang="en">Tropenmuseum</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Royal_Tropical_Institute">
+    <foaf:name xml:lang="en">Tropeninstituut</foaf:name>
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.92252</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.3627</geo:lat>
+    <foaf:name xml:lang="en">Royal Tropical Institute</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Hash,_Marihuana_&amp;_Hemp_Museum">
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.8974</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.3722</geo:lat>
+    <foaf:name xml:lang="en">Hash, Marihuana &amp; Hemp Museum</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Hermitage_Amsterdam">
+    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.9025</geo:long>
+    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.365</geo:lat>
+    <foaf:name xml:lang="en">Hermitage Amsterdam</foaf:name>
+  </rdf:Description>
+</rdf:RDF>

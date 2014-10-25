@@ -1,0 +1,16 @@
+PREFIX base: <http://www.semanticweb.org/Finalassessment#>
+PREFIX rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX ah: <http://purl.org/artsholland/1.0/>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>

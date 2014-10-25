@@ -1,0 +1,19 @@
+SELECT DISTINCT ?name ?description ?start_date ?end_date ?price WHERE
+{
+	BIND (NOW() AS ?now).
+	
+	?event rdf:type base:Event.
+	?event dbo:location/foaf:name ?museum_name.
+	?event time:hasEnd ?end_date.
+  
+	OPTIONAL { ?event foaf:name ?name. FILTER (langMatches(lang(?name), 'nl')) }
+	OPTIONAL { ?event foaf:name ?name. FILTER (langMatches(lang(?name), 'en')) }
+	OPTIONAL { ?event dbo:abstract ?description. FILTER (langMatches(lang(?description), 'nl')) }
+	OPTIONAL { ?event dbo:abstract ?description. FILTER (langMatches(lang(?description), 'en')) }
+	OPTIONAL { ?event dbo:cost ?price. }
+	OPTIONAL { ?event time:hasBeginning ?start_date. }
+  
+	FILTER ((?museum_name = 'Rijksmuseum'@en || ?museum_name = 'Rijksmuseum'@nl || ?museum_name = 'Rijksmuseum') && (?now > ?end_date))
+}
+ORDER BY ?end_date
+LIMIT 50

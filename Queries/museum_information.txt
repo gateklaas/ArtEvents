@@ -1,0 +1,10 @@
+SELECT DISTINCT ?name ?image ?description ?homepage WHERE
+{
+	?museum rdf:type base:Museum.
+	?museum foaf:name ?name.
+	OPTIONAL { ?museum dbo:abstract ?description. FILTER (langMatches(lang(?description), 'en'))}
+	OPTIONAL { ?museum dbo:abstract ?description. FILTER (langMatches(lang(?description), 'nl'))}
+	OPTIONAL { ?museum dbo:thumbnail ?image. }
+	OPTIONAL { ?museum foaf:homepage ?homepage. }
+	FILTER (?name = 'Rijksmuseum'@en || ?name = 'Rijksmuseum'@nl || ?name = 'Rijksmuseum')
+}

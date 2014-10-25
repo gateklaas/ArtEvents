@@ -1,0 +1,12 @@
+SELECT DISTINCT ?name ?image ?description ?artist WHERE
+{
+	?art dbo:museum/foaf:name ?museum_name.
+	OPTIONAL { ?art foaf:name ?name. FILTER (langMatches(lang(?name), 'en')) }
+	OPTIONAL { ?art foaf:name ?name. FILTER (langMatches(lang(?name), 'nl')) }
+	OPTIONAL { ?art dbo:abstract ?description. FILTER (langMatches(lang(?description), 'en')) }
+	OPTIONAL { ?art dbo:abstract ?description. FILTER (langMatches(lang(?description), 'nl')) }
+	OPTIONAL { ?art dbo:thumbnail ?image. }
+	OPTIONAL { ?art dbp:artist/foaf:name ?artist. }
+	FILTER (?museum_name = 'Rijksmuseum'@en || ?museum_name = 'Rijksmuseum'@nl || ?museum_name = 'Rijksmuseum')
+}
+ORDER BY ?name

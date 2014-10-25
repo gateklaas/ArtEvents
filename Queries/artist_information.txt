@@ -1,0 +1,12 @@
+SELECT DISTINCT ?name ?image ?description WHERE
+{
+	SERVICE <http://dbpedia.org/sparql>
+	{
+		?artist foaf:name ?name.
+		OPTIONAL { ?artist dbo:abstract ?description. FILTER (langMatches(lang(?description), 'en')) }
+		OPTIONAL { ?artist dbo:abstract ?description. FILTER (langMatches(lang(?description), 'nl')) }
+		OPTIONAL { ?artist dbo:thumbnail ?image. }
+		FILTER (?name = '" + assart.getUrlValue("artist_name") + "'@en || ?name = '" + assart.getUrlValue("artist_name") + "'@nl || ?name = '" + assart.getUrlValue("artist_name") + "')
+	}
+}
+ORDER BY ?name 
