@@ -10,4 +10,3 @@ Application setup instructions: <br/>
 - Start jena-fuseki-server <br/>
 - open http://localhost:8080/findMuseums <br/>
 - That's it <br/>
- <br/>
